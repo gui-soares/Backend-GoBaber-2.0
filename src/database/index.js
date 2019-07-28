@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 import Sequelize from 'sequelize';
 import mongoose from 'mongoose';
 
@@ -24,10 +26,11 @@ class Database {
   }
 
   mongo() {
-    this.mongoConnection = mongoose.connect(
-      'mongodb://localhost:27017/goBarber',
-      { useNewUrlParser: true, useFindAndModify: true, useCreateIndex: true }
-    );
+    this.mongoConnection = mongoose.connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useFindAndModify: true,
+      useCreateIndex: true,
+    });
   }
 }
 
