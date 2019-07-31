@@ -147,7 +147,7 @@ class AppointmentController {
       });
     }
 
-    const dateWithSub = subHours(appointment.getDataValue, 2);
+    const dateWithSub = subHours(appointment.date, 2);
 
     if (isBefore(dateWithSub, new Date())) {
       return res.status(401).json({
